@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/app_background"
+    tools:context=".MainActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_stt_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/stt_description"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_stt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:padding="15dp"
+        android:text="@string/recoginized_STT"
+        android:textSize="23sp"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="@+id/tv_stt_description"
+        app:layout_constraintStart_toStartOf="@+id/tv_stt_description"
+        app:layout_constraintTop_toBottomOf="@+id/tv_stt_description"
+        tools:text="@string/stt_sample" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_action_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
+        android:focusable="true"
+        android:clickable="true"
+        app:srcCompat="@drawable/ic_mic_none"
+        app:layout_constraintBottom_toTopOf="@+id/tv_mic_description"
+        app:layout_constraintEnd_toEndOf="@+id/tv_mic_description"
+        app:layout_constraintStart_toStartOf="@+id/tv_mic_description" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_mic_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:text="@string/mic_description"
+        android:textColor="@color/white"
+        android:textSize="23sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

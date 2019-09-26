@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Android STT</string>
+
+    <string name="mic_description">Tap on mic to speak</string>
+    <string name="stt_description">Recoginized Voice</string>
+    <string name="stt_sample">This is demo for STT service using SpeechRecognizer</string>
+    <string name="recoginized_STT">You will see input here</string>
+    <string name="listening">Listening...</string>
+</resources>

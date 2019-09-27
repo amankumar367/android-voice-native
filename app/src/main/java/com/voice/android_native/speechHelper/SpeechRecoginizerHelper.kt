@@ -2,6 +2,7 @@ package com.voice.android_native.speechHelper
 
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.speech.RecognitionListener
 import android.speech.RecognizerIntent
@@ -31,6 +32,9 @@ class SpeechRecoginizerHelper(
         mSpeechRecognizerIntent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
         mSpeechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
         mSpeechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            mSpeechRecognizerIntent.putExtra(RecognizerIntent.EXTRA_PREFER_OFFLINE, PREFER_OFFLINE)
+        }
     }
 
     private fun setSpeechRecognizerListner() {
@@ -82,6 +86,7 @@ class SpeechRecoginizerHelper(
 
     companion object{
         private var TAG = SpeechRecoginizerHelper::class.java.simpleName
+        private const val PREFER_OFFLINE = false
     }
 
 }

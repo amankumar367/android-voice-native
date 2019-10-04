@@ -107,7 +107,8 @@ class MainActivity : AppCompatActivity() {
 
         if(requestCode == REQUEST_CODE_AUDIO_PERMISSION){
             if(grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                startVoiceRecoginizationWithGoogleDialog()
+//                startVoiceRecoginizationWithGoogleDialog()
+                mSpeechRecoginizerHelper.startSpeech()
             } else{
                 floating_action_btn.setImageResource(R.drawable.ic_mic_off)
 

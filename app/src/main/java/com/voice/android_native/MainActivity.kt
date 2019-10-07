@@ -171,7 +171,8 @@ class MainActivity : AppCompatActivity() {
     override fun onRestart() {
         super.onRestart()
         if(hasAudioRecordingPermission()){
-            startVoiceRecoginizationWithGoogleDialog()
+//            startVoiceRecoginizationWithGoogleDialog()
+            mSpeechRecoginizerHelper.startSpeech()
         }
     }
 

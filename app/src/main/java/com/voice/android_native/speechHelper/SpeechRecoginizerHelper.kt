@@ -51,36 +51,41 @@ class SpeechRecoginizerHelper(
     }
 
     override fun onReadyForSpeech(p0: Bundle?) {
-        Log.d(TAG, "onReadyForSpeech : ${p0.toString()}")
+        Log.d(TAG, "onReadyForSpeech ---> Bundle : $p0")
     }
 
     override fun onRmsChanged(p0: Float) {
+        Log.d(TAG, "onRmsChanged ---> Float : $p0")
     }
 
     override fun onBufferReceived(p0: ByteArray?) {
+        Log.d(TAG, "onBufferReceived ---> ByteArray : $p0")
     }
 
     override fun onPartialResults(p0: Bundle?) {
+        Log.d(TAG, "onPartialResults ---> Bundle : $p0")
     }
 
     override fun onEvent(p0: Int, p1: Bundle?) {
+        Log.d(TAG, "onEvent ---> Type of the occurred event : $p0 || Bundle : $p1")
     }
 
     override fun onBeginningOfSpeech() {
-        Log.d(TAG, "onBeginningOfSpeech")
+        Log.d(TAG, "onBeginningOfSpeech ---> No parameter")
         speechCallback!!.onSpeechStart()
     }
 
     override fun onEndOfSpeech() {
+        Log.d(TAG, "onEndOfSpeech ---> No parameter")
     }
 
     override fun onError(p0: Int) {
-        Log.d(TAG, "onError : $p0")
+        Log.d(TAG, "onError ---> Error Code : $p0")
         speechCallback!!.onSpeechError("Got Some error while listning\nwith Error Code : $p0")
     }
 
     override fun onResults(p0: Bundle?) {
-        Log.d(TAG, "onResults : ${p0.toString()}")
+        Log.d(TAG, "onResults --> $p0")
         speechCallback!!.onSpeechResult(p0!!.getStringArrayList(SpeechRecognizer.RESULTS_RECOGNITION))
     }
 

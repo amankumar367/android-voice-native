@@ -9,6 +9,10 @@ import android.speech.RecognizerIntent
 import android.speech.SpeechRecognizer
 import android.util.Log
 import java.util.*
+import android.app.Activity
+import com.voice.android_native.LanguageDetailsChecker
+
+
 
 class SpeechRecoginizerHelper(
     context: Context,
@@ -26,6 +30,7 @@ class SpeechRecoginizerHelper(
         this.speechCallback = speechCallback
         createSpeechRecognizerIntent()
         setSpeechRecognizerListner()
+        sendBroadcastForLanguageDetails(context)
     }
 
     private fun createSpeechRecognizerIntent() {
@@ -39,6 +44,17 @@ class SpeechRecoginizerHelper(
 
     private fun setSpeechRecognizerListner() {
         mSpeechRecognizer?.setRecognitionListener(this)
+    }
+
+    private fun sendBroadcastForLanguageDetails(context: Context) {
+        Log.d(TAG, " >> Sending broadcast for language details")
+        val detailsIntent = Intent(RecognizerIntent.ACTION_GET_LANGUAGE_DETAILS)
+        context.sendOrderedBroadcast(
+            RecognizerIntent.getVoiceDetailsIntent(context),
+            null,
+            LanguageDetailsChecker(),
+            null,
+            Activity.RESULT_OK, null, null)
     }
 
     fun startSpeech() {
